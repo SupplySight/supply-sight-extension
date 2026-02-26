@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Supply Sight",
+    "version": "1.0.0",
+    "description": "Extension for the Supply Sight project",
+    "icons": {
+      "48": "images/icon48.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://amazon.com/*",
+        "https://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
+    "content_scripts": [
+    {
+      "js": [
+        "content-script.js"
+      ],
+      "matches": [
+        "http://amazon.com/*"
+      ]
+    }
+  ]
+  }
