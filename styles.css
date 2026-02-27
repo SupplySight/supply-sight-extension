@@ -1,3 +1,225 @@
 body {
-    width: 300px;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #ffffff;
 }
+
+/* Shared popup panel used by React popup and popup.html */
+.popup-container {
+    width: 300px;
+    min-height: 420px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+}
+
+/* Header (matches popup.html heading area) */
+.popup-header {
+    padding: 10px 14px;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.popup-header-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.popup-header-subtitle {
+    margin: 2px 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* Main body */
+.popup-main {
+    padding: 14px;
+    background-color: #ffffff;
+}
+
+/* Idle / empty state */
+.idle-state {
+    text-align: center;
+    padding: 32px 8px;
+    color: #4b5563;
+    font-size: 13px;
+}
+
+.idle-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    border-radius: 9999px;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Risk card */
+.risk-card {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+#risk-label{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Risk score and icon styling */
+#risk-score {
+    display: block;
+    margin: 4px 0px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#risk-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); /* make SVG appear white */
+}
+
+.risk-high {
+    background-color: #ef4444;
+}
+
+.risk-medium {
+    background-color: #f59e0b;
+}
+
+.risk-low {
+    background-color: #22c55e;
+}
+
+.risk-neutral {
+    background-color: #9ca3af;
+}
+
+/* Brand block */
+.brand-info {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.brand-card {
+    margin-bottom: 16px; 
+    padding: 12px;      
+    border-radius: 8px;  
+    background-color: #f9fafb; 
+}
+
+.brand-card-row {
+    display: flex;              
+    align-items: flex-start;   
+    gap: 8px;                 
+    margin-bottom: 8px;       
+}
+
+.brand-card-icon {
+    width: 16px;        
+    height: 16px;     
+    margin-top: 2px;  
+}
+
+.brand-card-text {
+    flex: 1; 
+}
+
+.brand-card-label {
+    font-size: 12px;     
+    font-weight: 500;     
+    color: #6b7280;       
+    margin: 0;
+}
+
+.brand-card-name {
+    font-size: 14px;        
+    font-weight: 600;      
+    color: #111827;         
+    margin: 0;
+}
+
+/* Buttons – unify popup.html button and React primary button */
+button#analyze-btn,
+.primary-button {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px 10px;
+    border-radius: 9999px;
+    border: none;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+button#analyze-btn:hover,
+.primary-button:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.4);
+}
+
+/* Footer */
+.popup-footer {
+    padding: 10px 14px;
+    border-top: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-size: 11px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Basic layout for static popup.html so it visually matches */
+html,
+body {
+    height: auto;
+}
+
+
+body > div:first-of-type h1 {
+    margin: 0;
+    font-size: 16px;
+}
+
+body > div:first-of-type p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+body > div:nth-of-type(2) {
+    padding: 12px 14px 0;
+}
+
+body > div:nth-of-type(3),
+body > div:nth-of-type(4) {
+    padding: 4px 14px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+footer {
+    padding: 8px 14px 10px;
+    font-size: 11px;
+    text-align: center;
+    color: #6b7280;
+}
+
