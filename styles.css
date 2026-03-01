@@ -117,6 +117,29 @@ body {
     color: #4b5563;
 }
 
+.issues-heading {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.issues-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.issue-label {
+    color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.12);
+    border: 1px solid #dc2626;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
 .brand-card {
     margin-bottom: 16px; 
     padding: 12px;      

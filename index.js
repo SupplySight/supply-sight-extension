@@ -40,10 +40,16 @@ function applyCompanyResult(payload) {
     if (brandEl) brandEl.textContent = payload.companyName || "—";
     const issuesEl = document.getElementById('issues-found');
     if (issuesEl) {
-        const list = payload.companyIssues && payload.companyIssues.length
-            ? payload.companyIssues.join(", ")
-            : "None reported";
-        issuesEl.textContent = "Issues: " + list;
+        const issues = payload.companyIssues && payload.companyIssues.length
+            ? payload.companyIssues
+            : ["None reported"];
+        issuesEl.innerHTML = "";
+        issues.forEach((issue) => {
+            const span = document.createElement("span");
+            span.className = "issue-label";
+            span.textContent = issue;
+            issuesEl.appendChild(span);
+        });
     }
 }
 
