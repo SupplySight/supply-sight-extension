@@ -25,10 +25,12 @@
     "content_scripts": [
     {
       "js": [
+        "productController.js",
         "content-script.js"
       ],
       "matches": [
-        "http://amazon.com/*"
+        "http://amazon.com/*",
+        "https://*/*"
       ]
     }
   ]
