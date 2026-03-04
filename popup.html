@@ -1,40 +1,54 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="popup-container">
-            <div class="popup-header">
-                <h1>Supply Sight</h1>
-                <p>Revealing the True Cost of Your Cart</p>
-            </div>
-            <div class="popup-main">
-                <div id="risk-card" class="risk-card risk-medium">
-                    <img src="images/triangle-alert.svg" id="risk-icon" alt="Risk icon">
-                    <span id="risk-label">Medium Risk</span>
-                    <h3 id="risk-score">53</h3>
-                    <p id="risk-score-description">This item might not be ethically sourced.</p>
-                </div>
-                <div class="brand-card">
-                    <div class="brand-card-row">
-                        <img src="images/building-2.svg" alt="Brand icon" class="brand-card-icon">
-                        <div class="brand-card-text">
-                            <p class="brand-card-label">Brand</p>
-                            <p class="brand-card-name" id="brand-name">Evil Charger Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="brand-info">
+	<head>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="popup-container">
+			<div class="popup-header">
+				<h1>Supply Sight</h1>
+				<p>Revealing the True Cost of Your Cart</p>
+			</div>
+			<div class="popup-main">
+				<div id="risk-card" class="risk-card risk-medium">
+					<img
+						src="images/triangle-alert.svg"
+						id="risk-icon"
+						alt="Risk icon"
+					/>
+					<span id="risk-label">Medium Risk</span>
+					<h3 id="risk-score">53</h3>
+					<p id="risk-score-description">
+						This item might not be ethically sourced.
+					</p>
+				</div>
+				<div class="brand-card">
+					<div class="brand-card-row">
+						<img
+							src="images/building-2.svg"
+							alt="Brand icon"
+							class="brand-card-icon"
+						/>
+						<div class="brand-card-text">
+							<p class="brand-card-label">Brand</p>
+							<p class="brand-card-name" id="brand-name">
+								Evil Charger Inc.
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="brand-info">
                     <span class="issues-heading">Issues</span>
                     <div id="issues-found" class="issues-list"></div>
-                </div>
-                <button id="analyze-btn" class="primary-button">Analyze Product</button>
-            </div>
-            <div class="popup-footer">
-                <a href="#" target="_blank">View source</a>
-            </div>
-        </div>
-        <script src="productController.js" ></script>
-        <script src="index.js" ></script>
-    </body>
+                </div> -->
+				<!-- <button id="analyze-btn" class="primary-button">
+					Analyze Product
+				</button> -->
+			</div>
+			<div class="popup-footer">
+				<a href="#" target="_blank">View source</a>
+			</div>
+		</div>
+		<script src="productController.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>
