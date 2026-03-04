@@ -7,119 +7,283 @@ body {
 		BlinkMacSystemFont,
 		"Segoe UI",
 		sans-serif;
-	background-color: #ffffff;
+	background-color: #e5e7eb;
 }
 
-/* Shared popup panel used by React popup and popup.html */
+/* Root popup card */
 .popup-container {
-	width: 300px;
-	min-height: 200px;
-	background-color: #ffffff;
-	border-radius: 8px;
-	box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+	width: 360px;
+	min-height: 260px;
+	background-color: #f9fafb;
+	box-shadow:
+		0 18px 45px rgba(15, 23, 42, 0.25),
+		0 0 0 1px rgba(148, 163, 184, 0.22);
 	overflow: hidden;
 }
 
-/* Header (matches popup.html heading area) */
+/* Header – gradient hero */
 .popup-header {
-	padding: 10px 14px;
-	background: #2563eb;
+	background: linear-gradient(135deg, #6366f1, #ec4899);
 	color: #ffffff;
+	padding: 16px 18px 18px;
+}
+
+.popup-header-inner {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.popup-logo-pill {
+	width: 40px;
+	height: 40px;
+	border-radius: 999px;
+	background: radial-gradient(circle at 30% 20%, #f9a8d4, #4f46e5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
+}
+
+.popup-logo-shield {
+	width: 20px;
+	height: 20px;
+	border-radius: 6px;
+	border: 2px solid rgba(255, 255, 255, 0.9);
+	box-sizing: border-box;
+	position: relative;
+}
+
+.popup-logo-shield::before {
+	content: "";
+	position: absolute;
+	inset: 3px 4px;
+	border-radius: 4px 4px 10px 10px;
+	border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.popup-header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 }
 
 .popup-header-title {
 	margin: 0;
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 17px;
+	font-weight: 650;
+	letter-spacing: 0.02em;
 }
 
 .popup-header-subtitle {
-	margin: 2px 0 0;
+	margin: 0;
 	font-size: 12px;
-	opacity: 0.9;
+	opacity: 0.92;
 }
 
 /* Main body */
 .popup-main {
-	padding: 14px;
-	background-color: #ffffff;
+	padding: 14px 18px 16px;
+	background-color: #f3f4f6;
 }
 
 /* Idle / empty state */
-.idle-state {
-	text-align: center;
-	padding: 32px 8px;
-	color: #4b5563;
-	font-size: 13px;
+/* Risk summary card */
+.risk-card {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 14px 14px 14px 12px;
+	border-radius: 16px;
+	margin-bottom: 16px;
+	background: #fef3c7;
+	box-shadow: 0 10px 24px rgba(251, 191, 36, 0.4);
+	color: #92400e;
 }
 
-.idle-icon-wrapper {
-	width: 60px;
-	height: 60px;
-	margin: 0 auto 12px;
-	border-radius: 9999px;
-	background-color: #f3f4f6;
+.risk-card-icon-wrap {
+	padding-left: 4px;
+}
+
+.risk-card-icon-pill {
+	width: 40px;
+	height: 40px;
+	border-radius: 12px;
+	background: linear-gradient(145deg, #facc15, #f97316);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-/* Risk card */
-.risk-card {
-	padding: 12px;
-	border-radius: 8px;
-	margin-bottom: 12px;
-	color: #ffffff;
-}
-
-#risk-label {
-	font-weight: 600;
-	font-size: 14px;
-}
-
-/* Risk score and icon styling */
-#risk-score {
-	display: block;
-	margin: 4px 0px;
-	margin-bottom: 10px;
-	font-size: 28px;
-	font-weight: 700;
-	text-align: center;
+	box-shadow:
+		0 8px 20px rgba(248, 181, 0, 0.7),
+		0 0 0 1px rgba(255, 255, 255, 0.65);
 }
 
 #risk-icon {
-	width: 24px;
-	height: 24px;
-	display: inline-block;
-	margin-right: 6px;
-	vertical-align: middle;
-	filter: brightness(0) invert(1); /* make SVG appear white */
+	width: 22px;
+	height: 22px;
 }
 
-.risk-high {
-	background-color: #ef4444;
+.risk-card-content {
+	flex: 1;
 }
 
-.risk-medium {
-	background-color: #f59e0b;
+.risk-card-title {
+	margin: 2px 0 4px;
+	font-size: 14px;
+	font-weight: 700;
 }
 
-.risk-low {
-	background-color: #22c55e;
-}
-
-.risk-neutral {
-	background-color: #9ca3af;
-}
-
-/* Brand block */
-.brand-info {
-	margin-bottom: 12px;
-	padding: 10px 12px;
-	border-radius: 8px;
-	background-color: #f9fafb;
+.risk-card-subtitle {
+	margin: 0;
 	font-size: 12px;
-	color: #4b5563;
+	color: #92400e;
+	opacity: 0.9;
+}
+
+#risk-label {
+	font-weight: 700;
+}
+
+/* Risk variants */
+.risk-card.risk-high {
+	background: #fee2e2;
+	color: #b91c1c;
+	box-shadow: 0 10px 24px rgba(248, 113, 113, 0.55);
+}
+
+.risk-card.risk-medium {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.risk-card.risk-low {
+	background: #dcfce7;
+	color: #166534;
+	box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35);
+}
+
+.risk-card.risk-neutral {
+	background: #e5e7eb;
+	color: #374151;
+	box-shadow: 0 10px 24px rgba(148, 163, 184, 0.35);
+}
+
+/* Brand & score card */
+.brand-score-card {
+	background-color: #ffffff;
+	border-radius: 18px;
+	padding: 16px 16px 14px;
+	box-shadow:
+		0 14px 40px rgba(15, 23, 42, 0.18),
+		0 0 0 1px rgba(229, 231, 235, 0.9);
+	margin-bottom: 12px;
+}
+
+.brand-score-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 12px;
+}
+
+.brand-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.brand-label {
+	margin: 0;
+	font-size: 12px;
+	color: #6b7280;
+	font-weight: 500;
+}
+
+.brand-name {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: #111827;
+}
+
+.brand-owner {
+	margin: 4px 0 0;
+	font-size: 12px;
+	color: #6b7280;
+}
+
+.brand-owner-name {
+	color: #ec4899;
+	font-weight: 600;
+}
+
+.score-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 10px;
+	margin-bottom: 8px;
+}
+
+.score-label-group {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.score-label {
+	margin: 0;
+	font-size: 12px;
+	color: #6b7280;
+	font-weight: 500;
+}
+
+.score-value {
+	display: flex;
+	align-items: baseline;
+	gap: 4px;
+}
+
+.score-number,
+#risk-score {
+	margin: 0;
+	font-size: 28px;
+	font-weight: 800;
+	color: #111827;
+}
+
+.score-max {
+	font-size: 12px;
+	color: #9ca3af;
+}
+
+.score-bar {
+	position: relative;
+	width: 100%;
+	height: 10px;
+	border-radius: 999px;
+	background-color: #e5e7eb;
+	overflow: hidden;
+	margin-bottom: 8px;
+}
+
+.score-bar-fill {
+	position: absolute;
+	inset: 0;
+	width: 0;
+	border-radius: inherit;
+	background: linear-gradient(90deg, #facc15, #f97316, #f97316);
+	transition: width 0.25s ease-out;
+}
+
+.score-help-text {
+	margin: 0 0 8px;
+	font-size: 11px;
+	color: #6b7280;
+}
+
+.issues-section {
+	margin-top: 6px;
 }
 
 .issues-heading {
@@ -127,6 +291,7 @@ body {
 	font-weight: 600;
 	margin-bottom: 6px;
 	color: #374151;
+	font-size: 12px;
 }
 
 .issues-list {
@@ -136,51 +301,13 @@ body {
 }
 
 .issue-label {
-	color: #dc2626;
-	background-color: rgba(220, 38, 38, 0.12);
-	border: 1px solid #dc2626;
+	color: #7c3aed;
+	background-color: rgba(129, 140, 248, 0.12);
+	border: 1px solid rgba(129, 140, 248, 0.6);
 	border-radius: 4px;
 	padding: 4px 8px;
 	font-size: 11px;
 	font-weight: 500;
-}
-
-.brand-card {
-	margin-bottom: 16px;
-	padding: 12px;
-	border-radius: 8px;
-	background-color: #f9fafb;
-}
-
-.brand-card-row {
-	display: flex;
-	align-items: flex-start;
-	gap: 8px;
-	margin-bottom: 8px;
-}
-
-.brand-card-icon {
-	width: 16px;
-	height: 16px;
-	margin-top: 2px;
-}
-
-.brand-card-text {
-	flex: 1;
-}
-
-.brand-card-label {
-	font-size: 12px;
-	font-weight: 500;
-	color: #6b7280;
-	margin: 0;
-}
-
-.brand-card-name {
-	font-size: 14px;
-	font-weight: 600;
-	color: #111827;
-	margin: 0;
 }
 
 /* Buttons – unify popup.html button and React primary button */
@@ -188,66 +315,21 @@ button#analyze-btn,
 .primary-button {
 	width: 100%;
 	margin-top: 6px;
-	padding: 8px 10px;
+	padding: 9px 10px;
 	border-radius: 9999px;
 	border: none;
-	background-color: #2563eb;
+	background: linear-gradient(135deg, #6366f1, #ec4899);
 	color: #ffffff;
 	font-size: 13px;
-	font-weight: 500;
+	font-weight: 600;
 	cursor: pointer;
 	transition:
-		background-color 0.15s ease,
+		transform 0.12s ease,
 		box-shadow 0.15s ease;
 }
 
 button#analyze-btn:hover,
 .primary-button:hover {
-	background-color: #1d4ed8;
-	box-shadow: 0 1px 4px rgba(37, 99, 235, 0.4);
-}
-
-/* Footer */
-.popup-footer {
-	padding: 10px 14px;
-	border-top: 1px solid #e5e7eb;
-	background-color: #f9fafb;
-	font-size: 11px;
-	color: #6b7280;
-	text-align: center;
-}
-
-/* Basic layout for static popup.html so it visually matches */
-html,
-body {
-	height: auto;
-}
-
-body > div:first-of-type h1 {
-	margin: 0;
-	font-size: 16px;
-}
-
-body > div:first-of-type p {
-	margin: 2px 0 0;
-	font-size: 12px;
-	opacity: 0.9;
-}
-
-body > div:nth-of-type(2) {
-	padding: 12px 14px 0;
-}
-
-body > div:nth-of-type(3),
-body > div:nth-of-type(4) {
-	padding: 4px 14px;
-	font-size: 12px;
-	color: #4b5563;
-}
-
-footer {
-	padding: 8px 14px 10px;
-	font-size: 11px;
-	text-align: center;
-	color: #6b7280;
+	transform: translateY(-1px);
+	box-shadow: 0 8px 22px rgba(129, 140, 248, 0.65);
 }

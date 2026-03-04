@@ -7,7 +7,7 @@ const riskLevel = {
     "Medium": {
         "icon": "images/triangle-alert.svg",
         "color": "#f59e0b",
-        "description": "This item might not be ethically sourced."
+        "description": "Some concerns have been identified. Review the details below."
     },
     "Low": {
         "icon": "images/circle-check-big.svg",
@@ -36,6 +36,12 @@ function applyCompanyResult(payload) {
     changeRiskLevel(risk);
     const scoreEl = document.getElementById('risk-score');
     if (scoreEl) scoreEl.textContent = String(payload.companyScore ?? "—");
+    const scoreBar = document.getElementById('score-bar-fill');
+    if (scoreBar) {
+        const raw = typeof payload.companyScore === "number" ? payload.companyScore : 0;
+        const clamped = Math.max(0, Math.min(100, raw));
+        scoreBar.style.width = `${clamped}%`;
+    }
     const brandEl = document.getElementById('brand-name');
     if (brandEl) brandEl.textContent = payload.companyName || "—";
     const issuesEl = document.getElementById('issues-found');

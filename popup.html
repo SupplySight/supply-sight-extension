@@ -1,53 +1,83 @@
-<html>
+<!doctype html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
 		<link rel="stylesheet" href="styles.css" />
+		<title>SupplyChain Sleuth</title>
 	</head>
 	<body>
 		<div class="popup-container">
-			<div class="popup-header">
-				<h1>Supply Sight</h1>
-				<p>Revealing the True Cost of Your Cart</p>
-			</div>
-			<div class="popup-main">
-				<div id="risk-card" class="risk-card risk-medium">
-					<img
-						src="images/triangle-alert.svg"
-						id="risk-icon"
-						alt="Risk icon"
-					/>
-					<span id="risk-label">Medium Risk</span>
-					<h3 id="risk-score">53</h3>
-					<p id="risk-score-description">
-						This item might not be ethically sourced.
-					</p>
+			<header class="popup-header">
+				<div class="popup-header-inner">
+					<div class="popup-logo-pill">
+						<div class="popup-logo-shield"></div>
+					</div>
+					<div class="popup-header-text">
+						<h1 class="popup-header-title">Supply Sight</h1>
+						<p class="popup-header-subtitle">
+							Ethical Shopping Intelligence
+						</p>
+					</div>
 				</div>
-				<div class="brand-card">
-					<div class="brand-card-row">
-						<img
-							src="images/building-2.svg"
-							alt="Brand icon"
-							class="brand-card-icon"
-						/>
-						<div class="brand-card-text">
-							<p class="brand-card-label">Brand</p>
-							<p class="brand-card-name" id="brand-name">
-								Evil Charger Inc.
+			</header>
+
+			<main class="popup-main">
+				<!-- Risk summary card -->
+				<section id="risk-card" class="risk-card risk-medium">
+					<div class="risk-card-icon-wrap">
+						<div class="risk-card-icon-pill">
+							<img
+								src="images/triangle-alert.svg"
+								id="risk-icon"
+								alt="Risk icon"
+							/>
+						</div>
+					</div>
+					<div class="risk-card-content">
+						<h2 id="risk-label" class="risk-card-title">
+							Some Risk Factors Found
+						</h2>
+						<p
+							id="risk-score-description"
+							class="risk-card-subtitle"
+						>
+							Some concerns have been identified. Review the
+							details below.
+						</p>
+					</div>
+				</section>
+
+				<!-- Brand and score card -->
+				<section class="brand-score-card">
+					<div class="brand-score-header">
+						<div class="brand-meta">
+							<p class="brand-label">Brand</p>
+							<p class="brand-name" id="brand-name">
+								Ben &amp; Jerry&apos;s
 							</p>
 						</div>
 					</div>
-				</div>
-				<!-- <div class="brand-info">
-                    <span class="issues-heading">Issues</span>
-                    <div id="issues-found" class="issues-list"></div>
-                </div> -->
-				<!-- <button id="analyze-btn" class="primary-button">
-					Analyze Product
-				</button> -->
-			</div>
-			<!-- <div class="popup-footer">
-				<a href="#" target="_blank">View source</a>
-			</div> -->
+
+					<div class="score-row">
+						<div class="score-label-group">
+							<p class="score-label">Social Cost Score</p>
+						</div>
+						<div class="score-value">
+							<span id="risk-score" class="score-number">65</span>
+							<span class="score-max">/ 100</span>
+						</div>
+					</div>
+
+					<div class="score-bar">
+						<div class="score-bar-fill" id="score-bar-fill"></div>
+					</div>
+					<p class="score-help-text">
+						Higher scores indicate better ethical practices
+					</p>
+				</section>
+			</main>
 		</div>
+
 		<script src="productController.js"></script>
 		<script src="index.js"></script>
 	</body>
