@@ -60,12 +60,28 @@ function applyCompanyResult(payload) {
 }
 
 async function buttonOnClick() {
+    const button = document.getElementById('analyze-btn');
+    const loader = document.getElementById('loading-indicator');
+    if (button) {
+        button.disabled = true;
+    }
+    if (loader) {
+        loader.classList.remove('hidden');
+    }
+
     const [tab] = await chrome.tabs.query({ active: true });
     try {
         const result = await chrome.tabs.sendMessage(tab.id, { type: "runAnalysis" });
         if (result && !result.error) applyCompanyResult(result);
     } catch (e) {
         console.warn("Analyze failed (reload the product page and try again):", e);
+    } finally {
+        if (button) {
+            button.disabled = false;
+        }
+        if (loader) {
+            loader.classList.add('hidden');
+        }
     }
 }
 
