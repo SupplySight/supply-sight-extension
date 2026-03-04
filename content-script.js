@@ -6,10 +6,31 @@
             arr = Array.from(document.querySelectorAll("tr")).filter( el => el.textContent.includes("Manu"))
         }
         if (arr.length === 0) {
-            throw new Error("No manufacturer found");
+            const result = {
+                companyName: "No manufacturer found",
+                companyScore: 0,
+                companyIssues: ["No manufacturer information found on this product page."],
+                riskLevel: "Neutral",
+            };
+            chrome.storage.local.set({ supplySightResult: result });
+            chrome.runtime.sendMessage({ type: "SUPPLY_SIGHT_RESULT", payload: result });
+            return Promise.resolve(result);
         }
         try {
-            manufacturer = arr.filter(e => (e.children[0].textContent.trim().replaceAll(" ", "").replaceAll("\n", "").replaceAll(":", "").replaceAll("‎", "").replaceAll("‏","")  == "Manufacturer"))[0].children[1].textContent.trim()
+            const match = arr.filter(e =>
+                e.children[0].textContent
+                    .trim()
+                    .replaceAll(" ", "")
+                    .replaceAll("\n", "")
+                    .replaceAll(":", "")
+                    .replaceAll("‎", "")
+                    .replaceAll("‏", "") === "Manufacturer"
+            )[0];
+            const rawManufacturer = match?.children[1]?.textContent?.trim() || "";
+            // Use only the first word and strip a trailing ".com" if present
+            let firstToken = rawManufacturer.split(/\s+/)[0] || "";
+            firstToken = firstToken.replace(/\.com$/i, "");
+            manufacturer = firstToken || "no manufacturer found";
         } catch (error) {
             console.error(error);
         }
