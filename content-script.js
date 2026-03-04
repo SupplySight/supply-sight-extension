@@ -39,8 +39,8 @@
 			const rawManufacturer =
 				match?.children[1]?.textContent?.trim() || "";
 			// Use only the first word and strip a trailing ".com" if present
-			manufacturer = manufacturer.replace(/\.com$/i, "");
-			manufacturer = manufacturer || "no manufacturer found";
+			manufacturer = rawManufacturer.replace(/\.com$/i, "");
+			manufacturer = manufacturer || "No manufacturer found";
 		} catch (error) {
 			console.error(error);
 		}

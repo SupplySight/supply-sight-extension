@@ -41,6 +41,19 @@ function applyCompanyResult(payload) {
         const raw = typeof payload.companyScore === "number" ? payload.companyScore : 0;
         const clamped = Math.max(0, Math.min(100, raw));
         scoreBar.style.width = `${clamped}%`;
+
+        // Match bar color to risk / score level
+        let gradient;
+        if (risk === "High") {
+            gradient = "linear-gradient(90deg, #fee2e2, #fca5a5, #b91c1c)";
+        } else if (risk === "Medium") {
+            gradient = "linear-gradient(90deg, #fef3c7, #facc15, #f97316)";
+        } else if (risk === "Low") {
+            gradient = "linear-gradient(90deg, #dcfce7, #4ade80, #16a34a)";
+        } else {
+            gradient = "linear-gradient(90deg, #e5e7eb, #d1d5db, #9ca3af)";
+        }
+        scoreBar.style.background = gradient;
     }
     const brandEl = document.getElementById('brand-name');
     if (brandEl) brandEl.textContent = payload.companyName || "—";
